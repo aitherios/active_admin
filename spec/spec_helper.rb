@@ -9,9 +9,6 @@ ENV['RAILS'] = detect_rails_version
 require "bundler"
 Bundler.setup
 
-require 'shoulda/active_record'
-include Shoulda::ActiveRecord::Macros
-
 module ActiveAdminIntegrationSpecHelper
   extend self
 
@@ -49,13 +46,13 @@ module ActiveAdminIntegrationSpecHelper
     reload_routes!
   end
 
-  # Sets up a describe block where you can render controller 
+  # Sets up a describe block where you can render controller
   # actions. Uses the Admin::PostsController as the subject
   # for the describe block
   def describe_with_render(*args, &block)
     describe *args do
       include RSpec::Rails::ControllerExampleGroup
-      render_views  
+      render_views
       # metadata[:behaviour][:describes] = ActiveAdmin.namespaces[:admin].resources['Post'].controller
       module_eval &block
     end
@@ -87,7 +84,7 @@ module ActiveAdminIntegrationSpecHelper
     ActionView::Base.send :include, ActiveAdmin::ViewHelpers
     ActionView::Base.send :include, Rails.application.routes.url_helpers
     ActionView::Base.new(ActionController::Base.view_paths, assigns, controller)
-  end  
+  end
   alias_method :action_view, :mock_action_view
 
 end
@@ -142,11 +139,11 @@ RSpec::Matchers.define :have_tag do |*args|
   match_unless_raises Test::Unit::AssertionFailedError do |response|
     tag = args.shift
     content = args.first.is_a?(Hash) ? nil : args.shift
-    
+
     options = {
       :tag => tag.to_s
     }.merge(args[0] || {})
-    
+
     options[:content] = content if content
 
     begin
