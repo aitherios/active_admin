@@ -1,9 +1,10 @@
 /* Active Admin CSS */
-
+@import "compass/reset";
 // Reset Away!
 @include global-reset;
 
 // Partials
+@import "active_admin/mixins";
 @import "active_admin/typography";
 @import "active_admin/header";
 @import "active_admin/forms";
