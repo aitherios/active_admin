@@ -290,7 +290,7 @@ a.menu:after,
     color: $gray;
     text-shadow: 0 1px 0 $white;
     // Hover state
-    &:hover, 
+    &:hover,
     &.hover {
       @include vertical-gradient(#eeeeee, #dddddd);
       color: $grayDark;
@@ -516,8 +516,12 @@ footer {
   &.danger:hover,
   &.error,
   &.error:hover,
+  &.alert,
+  &.alert:hover,
   &.success,
   &.success:hover,
+  &.notice,
+  &.notice:hover,
   &.info,
   &.info:hover {
     color: $white;
@@ -529,6 +533,7 @@ footer {
   }
   // Danger and error appear as red
   &.danger,
+  &.alert,
   &.error {
     @include gradientBar(#ee5f5b, #c43c35);
   }
@@ -537,7 +542,7 @@ footer {
     @include gradientBar(#62c462, #57a957);
   }
   // Info appears as a neutral blue
-  &.info {
+  &.info, &.notice {
     @include gradientBar(#5bc0de, #339bb9);
   }
 }
@@ -669,7 +674,7 @@ input[type=submit].btn {
     margin-top: 1px;
     *margin-top: 0; // For IE7
   }
-  
+
   // Make links same color as text and stand out more
   a {
     font-weight: bold;
@@ -677,11 +682,13 @@ input[type=submit].btn {
   }
   &.danger p a,
   &.error p a,
+  &.alert p a,
   &.success p a,
+  &.notice p a,
   &.info p a {
     color: $white;
   }
- 
+
   // Remove extra margin from content
   h5 {
     line-height: $baseline;
@@ -719,12 +726,14 @@ input[type=submit].btn {
       margin-top: 5px;
     }
     &.error,
+    &.alert,
     &.success,
+    &.notice,
     &.info {
       color: $grayDark;
       text-shadow: 0 1px 0 rgba(255,255,255,.5);
     }
-    &.error {
+    &.error, &.alert {
       background-color: lighten(#f56a66, 25%);
       border-color: lighten(#f56a66, 20%);
     }
@@ -732,14 +741,16 @@ input[type=submit].btn {
       background-color: lighten(#62c462, 30%);
       border-color: lighten(#62c462, 25%);
     }
-    &.info {
+    &.info, &.notice {
       background-color: lighten(#6bd0ee, 25%);
       border-color: lighten(#6bd0ee, 20%);
     }
     // Change link color back
     &.danger p a,
     &.error p a,
+    &.alert p a,
     &.success p a,
+    &.notice p a,
     &.info p a {
       color: $grayDark;
     }
