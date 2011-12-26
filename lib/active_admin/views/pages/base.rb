@@ -35,37 +35,43 @@ module ActiveAdmin
 
         def build_page
           within @body do
-            div :id => "wrapper" do
-              build_header
-              build_title_bar
-              build_page_content
+            build_header
+            div class: 'container-fluid' do
+              div class: 'content' do
+                build_title_bar
+                build_page_content
+              end
               build_footer
             end
           end
         end
 
         def build_header
-          div :id => "header" do
-            render view_factory.header
+          div class: 'topbar' do
+            div class: 'fill' do
+              div class: 'container-fluid' do
+                render view_factory.header
+              end
+            end
           end
         end
 
         def build_title_bar
-          div :id => "title_bar" do
+          div class: 'page-header row' do
             build_titlebar_left
             build_titlebar_right
           end
         end
-        
+
         def build_titlebar_left
-          div :id => "titlebar_left" do
+          div class: "pull-left" do
             build_breadcrumb
             build_title_tag
           end
         end
-        
+
         def build_titlebar_right
-          div :id => "titlebar_right" do
+          div class: "pull-right" do
             build_action_items
           end
         end
@@ -104,17 +110,29 @@ module ActiveAdmin
           if flash.keys.any?
             div :class => 'flashes' do
               flash.each do |type, message|
-                div message, :class => "flash flash_#{type}"
+                alert(type, message)
               end
             end
           end
         end
 
-        def build_main_content_wrapper
-          div :id => "main_content_wrapper" do
-            div :id => "main_content" do
-              main_content
+        def alert(type='info', message, &block)
+          div :class => "alert-message #{type} fade in" do
+            a href: '#', class: 'close', 'data-alert' => 'alert' do
+              '&times;'.html_safe
             end
+
+            if block_given?
+              para block.call
+            else
+              para message
+            end
+          end
+        end
+
+        def build_main_content_wrapper
+          div :id => "main_content" do
+            main_content
           end
         end
 
@@ -156,9 +174,9 @@ module ActiveAdmin
 
         # Renders the content for the footer
         def build_footer
-          div :id => "footer" do
-            para "Powered by #{link_to("Active Admin", "http://www.activeadmin.info")} #{ActiveAdmin::VERSION}".html_safe
-          end
+          # div :id => "footer" do
+          #   para "Powered by #{link_to("Active Admin", "http://www.activeadmin.info")} #{ActiveAdmin::VERSION}".html_safe
+          # end
         end
 
       end

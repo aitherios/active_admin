@@ -41,7 +41,7 @@ module ActiveAdmin
 
       def build_menu_item(item)
         li :id => item.dom_id do |li_element|
-          li_element.add_class "current" if current?(item)
+          li_element.add_class "active" if current?(item)
 
           if item.children.any?
             li_element.add_class "has_nested"
