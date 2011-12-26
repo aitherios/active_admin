@@ -1,4 +1,12 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require bootstrap/alerts
+//= require bootstrap/buttons
+//= require bootstrap/dropdown
+//= require bootstrap/modal
+//= require bootstrap/popover
+//= require bootstrap/scrollspy
+//= require bootstrap/tabs
+//= require bootstrap/twipsy
 //= require active_admin/application
