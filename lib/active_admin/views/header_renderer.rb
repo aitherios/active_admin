@@ -58,8 +58,8 @@ module ActiveAdmin
 
               if active_admin_application.logout_link_path
                 ul class: 'dropdown-menu' do
-                  # html << link_to(I18n.t('active_admin.logout'), logout_path, :method => logout_method)
-                  li link_to(I18n.t('active_admin.logout'), logout_path, :method => logout_method)
+                  # why logout_path doesn't work?
+                  li link_to(I18n.t('active_admin.logout'), '/admin/logout', :method => logout_method)
                 end
               end
 

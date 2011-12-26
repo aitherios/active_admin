@@ -2,10 +2,13 @@ require 'meta_search'
 require 'devise'
 require 'kaminari'
 require 'formtastic'
+require 'formtastic-bootstrap'
 require 'sass'
 require 'jquery-rails'
 require 'active_admin/arbre'
 require 'active_admin/engine'
+
+Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
 
 module ActiveAdmin
 
