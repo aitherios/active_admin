@@ -63,7 +63,6 @@ Feature: Specifying Actions
     And I follow "Review"
     Then I should see "Review: Hello World"
     And I should see the page title "Review"
-    And I should see the Active Admin layout
 
   Scenario: Specify a custom member action with template using arb
     Given a configuration of:
@@ -89,4 +88,3 @@ Feature: Specifying Actions
     And I follow "Review"
     Then I should see "Review: Hello World"
     And I should see the page title "Review"
-    And I should see the Active Admin layout

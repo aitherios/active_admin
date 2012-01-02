@@ -77,6 +77,6 @@ Then /^the "([^"]*)" field should contain the option "([^"]*)"$/ do |field, opti
 end
 
 Then /^I should see the content "([^"]*)"$/ do |content|
-  page.should have_css("#active_admin_content", :text => content)
+  page.should have_content(content)
 end
 

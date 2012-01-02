@@ -17,7 +17,6 @@ Feature: Registering Pages
     When I go to the dashboard
     And I follow "Status"
     Then I should see the page title "Status"
-    And I should see the Active Admin layout
     And I should see the content "I love chocolate."
 
   Scenario: Registering an empty page
@@ -28,7 +27,6 @@ Feature: Registering Pages
     When I go to the dashboard
     And I follow "Status"
     Then I should see the page title "Status"
-    And I should see the Active Admin layout
 
   Scenario: Adding a sidebar section to a page
     Given a configuration of:
