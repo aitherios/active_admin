@@ -1,5 +1,5 @@
 module ActiveAdmin
-  class FormBuilder < ::Formtastic::FormBuilder
+  class FormBuilder < ::FormtasticBootstrap::FormBuilder
 
     attr_reader :form_buffers
 
@@ -33,14 +33,12 @@ module ActiveAdmin
     end
 
     def commit_button(*args)
-      content = with_new_form_buffer{ super }
+      content = with_new_form_buffer{ super(:button_html => { :class => "primary" }) }
       form_buffers.last << content.html_safe
     end
 
-    def cancel_link(url = nil, html_options = {}, li_attributes = {})
-      li_attributes[:class] ||= "cancel"
-      url ||= {:action => "index"}
-      template.content_tag(:li, (template.link_to I18n.t('active_admin.cancel'), url, html_options), li_attributes)
+    def cancel_link(url = {:action => "index"})
+      template.link_to I18n.t('active_admin.cancel'), url, class: 'btn secondary'
     end
 
     def commit_button_with_cancel_link

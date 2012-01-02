@@ -36,7 +36,7 @@ module ActiveAdmin
         def build_page
           within @body do
             build_header
-            div class: 'container-fluid' do
+            div :class => (skip_sidebar? ? "container-fluid without_sidebar" : "container-fluid with_sidebar") do
               div class: 'content' do
                 build_title_bar
                 build_page_content
@@ -65,7 +65,6 @@ module ActiveAdmin
 
         def build_titlebar_left
           div class: "pull-left" do
-            build_breadcrumb
             build_title_tag
           end
         end
@@ -79,10 +78,15 @@ module ActiveAdmin
         def build_breadcrumb(separator = "/")
           links = breadcrumb_links
           return if links.empty?
-          span :class => "breadcrumb" do
+          ul :class => "breadcrumb" do
             links.each do |link|
-              text_node link
-              span(separator, :class => "breadcrumb_sep")
+              li do
+                text_node link
+                span(separator, :class => "divider")
+              end
+            end
+            li class: 'active' do
+              text_node title
             end
           end
         end
@@ -148,7 +152,6 @@ module ActiveAdmin
         def set_page_title
           set_ivar_on_view "@page_title", title
         end
-
 
         # Returns the sidebar sections to render for the current action
         def sidebar_sections_for_action

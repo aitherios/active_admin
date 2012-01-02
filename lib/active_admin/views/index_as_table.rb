@@ -96,7 +96,7 @@ module ActiveAdmin
         table_options = {
           :id => active_admin_config.plural_underscored_resource_name,
           :sortable => true,
-          :class => "index_table",
+          :class => "zebra-striped",
           :i18n => active_admin_config.resource_class
         }
 
@@ -128,13 +128,13 @@ module ActiveAdmin
           column options[:name] do |resource|
             links = ''.html_safe
             if controller.action_methods.include?('show')
-              links += link_to I18n.t('active_admin.view'), resource_path(resource), :class => "member_link view_link"
+              links += link_to I18n.t('active_admin.view'), resource_path(resource), :class => "btn small"
             end
             if controller.action_methods.include?('edit')
-              links += link_to I18n.t('active_admin.edit'), edit_resource_path(resource), :class => "member_link edit_link"
+              links += link_to I18n.t('active_admin.edit'), edit_resource_path(resource), :class => "btn small"
             end
             if controller.action_methods.include?('destroy')
-              links += link_to I18n.t('active_admin.delete'), resource_path(resource), :method => :delete, :confirm => I18n.t('active_admin.delete_confirmation'), :class => "member_link delete_link"
+              links += link_to I18n.t('active_admin.delete'), resource_path(resource), :method => :delete, :confirm => I18n.t('active_admin.delete_confirmation'), :class => "btn small"
             end
             links
           end
