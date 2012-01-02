@@ -1,24 +1,25 @@
 "pt-BR":
   active_admin:
-    dashboard: "Painel Administrativo"
+    dashboard: "Painel"
     dashboard_welcome:
       welcome: "Bem vindo ao Active Admin. Esta é a página de painéis padrão."
       call_to_action: "Para adicionar seções ao painel, verifique 'app/admin/dashboards.rb'"
-    view: "Visualizar"
+    view: "Ver"
     edit: "Editar"
-    delete: "Remover"
+    delete: "Excluir"
     delete_confirmation: "Você tem certeza que deseja remover este item?"
-    new_model: "Novo(a) %{model}"
+    new_model: "Cadastrar %{model}"
     edit_model: "Editar %{model}"
-    delete_model: "Remover %{model}"
-    details: "Detalhes do(a) %{model}"
+    delete_model: "Excluir %{model}"
+    details: "Ver"
     cancel: "Cancelar"
     empty: "Vazio"
-    previous: "Anterior"
-    next: "Próximo"
+    previous: "&larr; Anterior"
+    next: "Próximo &rarr;"
+    truncate: "…"
     download: "Baixar:"
-    has_many_new: "Adicionar Novo(a) %{model}"
-    has_many_delete: "Remover"
+    has_many_new: "Adicionar %{model}"
+    has_many_delete: "Excluir"
     filter: "Filtrar"
     clear_filters: "Limpar Filtros"
     search_field: "Pesquisar %{field}"
@@ -30,9 +31,9 @@
     sidebars:
       filters: "Filtros"
     pagination:
-      empty: "Nenhum(a) %{model} encontrado(a)"
+      empty: "Não existem %{resource_name} ainda."
       one: "Exibindo <b>1</b> %{model}"
-      one_page: "Exibindo <b>todos(as) os(as) %{n}</b> %{model}"
+      one_page: "Exibindo <b>%{n}</b> %{model}"
       multiple: "Exibindo %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de um total de <b>%{total}</b>"
       entry:
         one: "registro"
@@ -40,5 +41,10 @@
     any: "Qualquer"
     blank_slate:
       content: "Não existem %{resource_name} ainda."
-      link: "Crie uma"
+      link: "Cadastrar"
 
+# Formtastic
+  formtastic:
+    actions:
+      create: "Cadastrar %{model}"
+      update: "Editar %{model}"
