@@ -8,7 +8,6 @@ module ActiveAdmin
     include ActiveAdminApplicationHelper
     include RendererHelper
     include AutoLinkHelper
-    include BreadcrumbHelper
     include DisplayHelper
     include IconHelper
     include MethodOrProcHelper

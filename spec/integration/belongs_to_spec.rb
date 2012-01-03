@@ -22,15 +22,6 @@ describe_with_capybara "Belongs To" do
       end
     end
 
-    describe "the breadcrumb" do
-      it "should have a link to the parent's index" do
-        page.body.should have_tag("a", "Users", :attributes => { :href => "/admin/users" })
-      end
-      it "should have a link to the parent" do
-        page.body.should have_tag("a", user.id.to_s, :attributes => { :href => "/admin/users/#{user.id}" })
-      end
-    end
-
     describe "the view links" do
       it "should take you to the sub resource" do
         click_link "View"

@@ -1,4 +1,4 @@
-require 'spec_helper' 
+require 'spec_helper'
 
 describe ActiveAdmin::FormBuilder do
 
@@ -6,7 +6,7 @@ describe ActiveAdmin::FormBuilder do
 
   # Setup an ActionView::Base object which can be used for
   # generating the form for.
-  let(:helpers) do 
+  let(:helpers) do
     view = action_view
     def view.posts_path
       "/posts"
@@ -102,7 +102,7 @@ describe ActiveAdmin::FormBuilder do
         f.buttons
       end
       body.scan(/type=\"submit\"/).size.should == 1
-      body.scan(/class=\"cancel\"/).size.should == 1
+      body.scan(/class=\"btn cancel secondary\"/).size.should == 1
     end
     it "should generate multiple buttons" do
       body = build_form do |f|
@@ -209,17 +209,17 @@ describe ActiveAdmin::FormBuilder do
       body = build_form do |f|
         f.input :title, :wrapper_html => { :class => "important" }
       end
-      body.should have_tag("li", :attributes => {:class => "important string input optional stringish"})
+      body.should have_tag("div", :attributes => {:class => "important string clearfix optional stringish"})
     end
   end
 
 
-  { 
+  {
     "input :title, :as => :string"        => /id\=\"post_title\"/,
     "input :title, :as => :text"          => /id\=\"post_title\"/,
-    "input :created_at, :as => :time"     => /id\=\"post_created_at_2i\"/,
-    "input :created_at, :as => :datetime" => /id\=\"post_created_at_2i\"/,
-    "input :created_at, :as => :date"     => /id\=\"post_created_at_2i\"/,
+    "input :created_at, :as => :time"     => /id\=\"post_created_at\[time\]\"/,
+    "input :created_at, :as => :datetime" => /id\=\"post_created_at\[time\]\"/,
+    "input :created_at, :as => :date"     => /id\=\"post_created_at\[date\]\"/,
   }.each do |source, regex|
    it "should properly buffer #{source}" do
      body = build_form do |f|
