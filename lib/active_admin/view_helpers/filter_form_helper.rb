@@ -11,16 +11,17 @@ module ActiveAdmin
         options[:html][:method] = :get
         options[:html][:class] ||= "filter_form"
         options[:as] = :q
-        clear_link = link_to(I18n.t('active_admin.clear_filters'), "#", :class => "clear_filters_btn")
-        form_for search, options do |f|
-          filters.each do |filter_options|
-            filter_options = filter_options.dup
-            attribute = filter_options.delete(:attribute)
-            f.filter attribute, filter_options
-          end
+        clear_link = link_to(I18n.t('active_admin.clear_filters'), "#", :class => "clear_filters_btn btn")
+        semantic_form_for search, options do |f|
 
-          buttons = content_tag :div, :class => "buttons" do
-            f.submit(I18n.t('active_admin.filter')) +
+        filters.each do |filter_options|
+          filter_options = filter_options.dup
+          attribute = filter_options.delete(:attribute)
+          f.filter attribute, filter_options
+        end
+
+          buttons = content_tag :div, :class => "modal-footer" do
+            f.submit(I18n.t('active_admin.filter'), class: 'btn primary') +
               clear_link +
               hidden_field_tag("order", params[:order]) +
               hidden_field_tag("scope", params[:scope])

@@ -9,4 +9,5 @@
 //= require bootstrap/tabs
 //= require bootstrap/twipsy
 //= require bootstrap/popover
+//= require active_admin/jquery-ui-i18n
 //= require active_admin/application

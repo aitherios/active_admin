@@ -8,6 +8,7 @@ module ActiveAdmin
           add_classes_to_body
           build_active_admin_head
           build_page
+          set_attribute('lang', I18n.locale)
         end
 
         private
@@ -164,7 +165,7 @@ module ActiveAdmin
 
         # Renders the sidebar
         def build_sidebar
-          div :id => "sidebar" do
+          div class: 'sidebar modal' do
             sidebar_sections_for_action.collect do |section|
               sidebar_section(section)
             end

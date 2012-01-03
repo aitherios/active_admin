@@ -25,13 +25,4 @@ describe ActiveAdmin::Views::SidebarSection do
   it "should have an id based on the title" do
     html.id.should == "help_sidebar_section"
   end
-
-  it "should have a contents div" do
-    html.find_by_tag("div").first.class_list.should include("panel_contents")
-  end
-
-  it "should add children to the contents div" do
-    html.find_by_tag("span").first.parent.should == html.find_by_tag("div").first
-  end
-
 end

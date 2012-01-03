@@ -9,7 +9,9 @@ module ActiveAdmin
         icn = icon_name ? icon(icon_name) : ""
         super(attributes)
         add_class "panel"
-        @title = h3(icn + title.to_s)
+        @title = div class: 'modal-header' do
+          h3(icn + title.to_s)
+        end
         @contents = div(:class => "panel_contents")
       end
 

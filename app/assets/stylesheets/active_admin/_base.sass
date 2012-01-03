@@ -1,3 +1,11 @@
+@mixin pie-clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+  // For IE 6/7 (trigger hasLayout)
+  zoom: 1
+
 @import bootstrap/bootstrap
-@import compass/utilities/general/clearfix
 @import application
+@import jquery-ui

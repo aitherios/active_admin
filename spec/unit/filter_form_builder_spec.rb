@@ -1,4 +1,4 @@
-require 'spec_helper' 
+require 'spec_helper'
 
 
 describe ActiveAdmin::ViewHelpers::FilterFormHelper do
@@ -7,7 +7,7 @@ describe ActiveAdmin::ViewHelpers::FilterFormHelper do
 
   # Setup an ActionView::Base object which can be used for
   # generating the form for.
-  let(:helpers) do 
+  let(:helpers) do
     view = action_view
     def view.collection_path
       "/posts"
@@ -29,7 +29,7 @@ describe ActiveAdmin::ViewHelpers::FilterFormHelper do
     let(:body) { filter :title }
 
     it "should generate a form which submits via get" do
-      body.should have_tag("form", :attributes => { :method => 'get', :class => 'filter_form' })
+      body.should have_tag("form", :attributes => { :method => 'get', :class => 'filter_form formtastic q' })
     end
 
     it "should generate a filter button" do
@@ -42,7 +42,7 @@ describe ActiveAdmin::ViewHelpers::FilterFormHelper do
     end
 
     it "should generate a clear filters link" do
-      body.should have_tag("a", "Clear Filters", :attributes => { :class => "clear_filters_btn" })
+      body.should have_tag("a", "Clear Filters", :attributes => { :class => "clear_filters_btn btn" })
     end
   end
 
@@ -173,7 +173,7 @@ describe ActiveAdmin::ViewHelpers::FilterFormHelper do
                                             :value => @john.id })
         body.should have_tag("input", :attributes => {
                                             :name => "q[author_id_in][]",
-                                            :type => "checkbox",          
+                                            :type => "checkbox",
                                             :value => @jane.id })
       end
     end
