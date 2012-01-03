@@ -78,8 +78,32 @@ ol
   .content
     margin: 0
 
-.index_as_table .zebra-striped
-  td:last-child
-    width: 155px
-    .small
-      margin-left: 5px
+.content
+  margin-bottom: 30px
+  margin-right: 0
+
+.index_as_table
+  margin-top: 40px
+
+  .zebra-striped
+    td:last-child
+      width: 155px
+      .small
+        margin-left: 5px
+
+#index_footer
+  +pie-clearfix
+  > div
+    float: right
+  .download_links
+    line-height: 72px
+    font-size: 11px
+    margin-right: 20px
+  .pagination_information
+    font-size: 11px
+    color: #aaa
+    position: absolute
+    top: 85px
+    right: 42px
+    b
+      color: #666
