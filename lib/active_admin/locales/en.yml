@@ -1,5 +1,9 @@
 en:
   active_admin:
+    login: "Login"
+    forgot_password: "Forgot your password?"
+    remember_me: "Remember me"
+    reset_my_password: "Reset My Password"
     dashboard: Dashboard
     dashboard_welcome:
       welcome: "Welcome to Active Admin. This is the default dashboard page."
@@ -43,3 +47,9 @@ en:
     blank_slate:
       content: "There are no %{resource_name} yet."
       link: "Create one"
+
+# Formtastic
+  formtastic:
+    actions:
+      create: "Create %{model}"
+      update: "Update %{model}"

@@ -1,5 +1,9 @@
 "pt-BR":
   active_admin:
+    login: "Entrar"
+    forgot_password: "Esqueceu sua senha?"
+    remember_me: "Lembrar-me"
+    reset_my_password: "Quero criar uma nova senha"
     dashboard: "Painel"
     dashboard_welcome:
       welcome: "Bem vindo ao Active Admin. Esta é a página de painéis padrão."
