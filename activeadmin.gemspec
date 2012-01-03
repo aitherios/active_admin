@@ -27,5 +27,4 @@ Gem::Specification.new do |s|
   s.add_dependency("kaminari", ">= 0.12.4")
   s.add_dependency("sass", ">= 3.1.0")
   s.add_dependency("fastercsv", ">= 0")
-  s.add_dependency('compass', '~> 0.12.alpha')
 end
