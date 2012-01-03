@@ -33,7 +33,9 @@ module ActiveAdmin
     end
 
     def commit_button(*args)
-      content = with_new_form_buffer{ super(*args) }
+      args[1].merge(button_html: {class: 'btn primary'}) if args[1].present?
+
+      content = with_new_form_buffer{ args.present? ? super(*args) : super(button_html: {class: 'btn primary'}) }
       form_buffers.last << content.html_safe
     end
 
