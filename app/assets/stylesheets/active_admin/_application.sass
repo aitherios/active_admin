@@ -133,3 +133,26 @@ ol
     width: 99%
   textarea
     height: 300px
+
+form .thumbnail
+  figure
+    position: relative
+    width: auto
+    img
+      margin-left: 20px
+    a.remove
+      position: absolute
+      display: block
+      width: 16px
+      height: 16px
+      text-indent: -9999em
+      background: url(/assets/active_admin/button_remove.png)
+      top: -5px
+      left: 102px
+      cursor: pointer
+      display: none
+    a.remove:hover
+      background-position: bottom
+  figure:hover
+    a.remove
+      display: block
