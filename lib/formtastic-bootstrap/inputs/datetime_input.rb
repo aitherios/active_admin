@@ -3,13 +3,14 @@ module FormtasticBootstrap
     class DatetimeInput < Formtastic::Inputs::DatetimeInput
       include Base
       include Base::Stringish
-      include Base::Timeish
+      include Formtastic::Inputs::Base::Timeish
 
       def to_html
         generic_input_wrapping do
           inline_inputs_div_wrapping do
-            # This newline matters.
-            date_input_html << "\n".html_safe << time_input_html
+            fragments.map do |fragment|
+              fragment_input_html(fragment)
+            end.join.html_safe
           end
         end
       end
