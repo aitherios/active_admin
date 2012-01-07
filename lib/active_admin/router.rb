@@ -22,6 +22,7 @@ module ActiveAdmin
           else
             name = namespace.name
             match name.to_s => "#{name}/dashboard#index", :as => "#{name.to_s}_dashboard"
+            match "/#{name}/preview" => "#{name}/dashboard#preview", as: :preview
           end
         end
       end

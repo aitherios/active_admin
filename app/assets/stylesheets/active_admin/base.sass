@@ -1,3 +1,16 @@
+@mixin pie-clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+  // For IE 6/7 (trigger hasLayout)
+  zoom: 1
+
+@import bootstrap/bootstrap
+@import jquery-ui
+@import markitup/skins/simple/style
+@import markitup/sets/default/style
+
 html, body
   background-color: #eee
 
@@ -128,11 +141,11 @@ ol
     b
       color: #666
 
-#main_content
-  input[type=text], textarea
-    width: 99%
-  textarea
-    height: 300px
+// #main_content
+//   input[type=text], textarea
+//     width: 99%
+//   textarea
+//     height: 300px
 
 form .thumbnail
   figure
@@ -146,7 +159,7 @@ form .thumbnail
       width: 16px
       height: 16px
       text-indent: -9999em
-      background: url(/assets/active_admin/button_remove.png)
+      background: url(/assets/button_remove.png)
       top: -5px
       left: 102px
       cursor: pointer

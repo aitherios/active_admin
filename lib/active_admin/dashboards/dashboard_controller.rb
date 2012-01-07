@@ -9,6 +9,11 @@ module ActiveAdmin
         render 'active_admin/dashboard/index.html.arb'
       end
 
+      def preview
+
+        render 'active_admin/dashboard/preview.html.erb', layout: false
+      end
+
       private
 
       def set_current_tab
@@ -16,7 +21,7 @@ module ActiveAdmin
       end
 
       def find_sections
-        sections = ActiveAdmin::Dashboards.sections_for_namespace(namespace)        
+        sections = ActiveAdmin::Dashboards.sections_for_namespace(namespace)
         sections.select do |section|
           if section.options.has_key?(:if)
             symbol_or_proc = section.options[:if]
@@ -30,7 +35,7 @@ module ActiveAdmin
           end
         end
       end
-      
+
       def namespace
         class_name = self.class.name
         if class_name.include?('::')
