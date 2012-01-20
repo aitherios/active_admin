@@ -20,19 +20,17 @@ module ActiveAdmin
   module Settings
     extend ActiveSupport::Concern
 
-    module InstanceMethods
 
-      def read_default_setting(name)
-        default_settings[name]
-      end
-
-      private
-
-      def default_settings
-        self.class.default_settings
-      end
-
+    def read_default_setting(name)
+      default_settings[name]
     end
+
+    private
+
+    def default_settings
+      self.class.default_settings
+    end
+
 
     module ClassMethods
 
