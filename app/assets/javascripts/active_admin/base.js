@@ -12,9 +12,14 @@
 //= require bootstrap/popover
 //= require markitup/jquery.markitup
 //= require markitup/sets/default/set
+//= require chosen.jquery.min
+
 
 /* Active Admin JS */
 $(function(){
+  // Chosen Applications
+  $('select').chosen();
+	
   // datepicker for filters ---------------------------------------------------
   $(".datepicker").datepicker($.datepicker.regional[$('html').attr('lang')]);
 
