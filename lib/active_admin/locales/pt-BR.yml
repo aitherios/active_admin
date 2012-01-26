@@ -36,7 +36,7 @@
     sidebars:
       filters: "Filtros"
     pagination:
-      empty: "Não existem %{resource_name} ainda."
+      empty: "Não foi possível encontrar %{model} com essas propriedades."
       one: "Exibindo <b>1</b> %{model}"
       one_page: "Exibindo <b>%{n}</b> %{model}"
       multiple: "Exibindo %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de um total de <b>%{total}</b>"
