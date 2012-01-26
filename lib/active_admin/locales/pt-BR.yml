@@ -13,6 +13,7 @@
     delete: "Excluir"
     delete_confirmation: "Você tem certeza que deseja remover este item?"
     new_model: "Cadastrar %{model}"
+    create_model: "Cadastrar %{model}"
     edit_model: "Editar %{model}"
     delete_model: "Excluir %{model}"
     details: "Ver"
