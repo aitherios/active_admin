@@ -42,8 +42,8 @@ module ActiveAdmin
         unless collection.respond_to?(:num_pages)
           raise(StandardError, "Collection is not a paginated scope. Set collection.page(params[:page]).per(10) before calling :paginated_collection.")
         end
-        
-      
+
+
         @contents = div(:class => "paginated_collection_contents")
         build_pagination_with_formats(options)
         @built = true
@@ -96,7 +96,7 @@ module ActiveAdmin
         else
           begin
             entry_name = I18n.translate!("activerecord.models.#{collection.first.class.model_name.i18n_key}", :count => 1)
-            entries_name = I18n.translate!("activerecord.models.#{collection.first.class.model_name.i18n_key}", :count => collection.size)
+            entries_name = I18n.translate!("activerecord.models.#{collection.first.class.model_name.i18n_key}", :count => collection.length)
           rescue I18n::MissingTranslationData
             entry_name = collection.first.class.name.underscore.sub('_', ' ')
           end
@@ -104,15 +104,15 @@ module ActiveAdmin
         entries_name = entry_name.pluralize unless entries_name
 
         if collection.num_pages < 2
-          case collection.size
+          case collection.length
           when 0; I18n.t('active_admin.pagination.empty', :model => entries_name)
           when 1; I18n.t('active_admin.pagination.one', :model => entry_name)
-          else;   I18n.t('active_admin.pagination.one_page', :model => entries_name, :n => collection.size)
+          else;   I18n.t('active_admin.pagination.one_page', :model => entries_name, :n => collection.length)
           end
         else
-          offset = collection.current_page * collection.size
+          offset = collection.current_page * collection.length
           total  = collection.total_count
-          I18n.t('active_admin.pagination.multiple', :model => entries_name, :from => (offset - collection.size + 1), :to => offset > total ? total : offset, :total => total)
+          I18n.t('active_admin.pagination.multiple', :model => entries_name, :from => (offset - collection.length + 1), :to => offset > total ? total : offset, :total => total)
         end
       end
 
